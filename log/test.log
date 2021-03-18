@@ -1172,3 +1172,732 @@ Processing by PostsController#edit as HTML
   Rendered posts/edit.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
   [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAuthors (20160119185347)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "hometown" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160119185347"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAuthorIdToPosts (20160119185429)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "posts" ADD "author_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160119185429"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-03-18 21:07:22.438101"], ["updated_at", "2021-03-18 21:07:22.438101"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (18.3ms)[0m  [1m[31mDELETE FROM "posts";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'posts';[0m
+  [1m[35m (17.2ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.6ms)[0m  [1m[31mDELETE FROM "authors";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'authors';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:07:33.181560"], ["updated_at", "2021-03-18 21:07:33.181560"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 192ms (Views: 185.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:07:33.384949"], ["updated_at", "2021-03-18 21:07:33.384949"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:33.392362"], ["updated_at", "2021-03-18 21:07:33.392362"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:33.398362"], ["updated_at", "2021-03-18 21:07:33.398362"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:33.415534"], ["updated_at", "2021-03-18 21:07:33.415534"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:33.416851"], ["updated_at", "2021-03-18 21:07:33.416851"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:33.423740"], ["updated_at", "2021-03-18 21:07:33.423740"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:33.424689"], ["updated_at", "2021-03-18 21:07:33.424689"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:33.453692"], ["updated_at", "2021-03-18 21:07:33.453692"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:33.454648"], ["updated_at", "2021-03-18 21:07:33.454648"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:33.462015"], ["updated_at", "2021-03-18 21:07:33.462015"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:07:33.463023"], ["updated_at", "2021-03-18 21:07:33.463023"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.4ms)
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "title"=>"My post title", "description"=>"My post description", "commit"=>"Submit Post"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My post title"], ["description", "My post description"], ["created_at", "2021-03-18 21:07:33.478148"], ["updated_at", "2021-03-18 21:07:33.478148"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/2
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+Started GET "/posts/2" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:33.485306"], ["updated_at", "2021-03-18 21:07:33.485306"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:07:33.486415"], ["updated_at", "2021-03-18 21:07:33.486415"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1/edit" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.3ms)
+  Rendered posts/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started PATCH "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "title"=>"My edit", "description"=>"My post description", "commit"=>"Submit Post", "id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "My edit"], ["description", "My post description"], ["updated_at", "2021-03-18 21:07:33.495277"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  [1m[31mDELETE FROM "posts";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'posts';[0m
+  [1m[35m (0.8ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (0.8ms)[0m  [1m[31mDELETE FROM "authors";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'authors';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:07:49.626560"], ["updated_at", "2021-03-18 21:07:49.626560"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 98ms (Views: 93.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:07:49.734195"], ["updated_at", "2021-03-18 21:07:49.734195"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:49.742639"], ["updated_at", "2021-03-18 21:07:49.742639"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:49.748589"], ["updated_at", "2021-03-18 21:07:49.748589"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:49.759718"], ["updated_at", "2021-03-18 21:07:49.759718"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:49.760802"], ["updated_at", "2021-03-18 21:07:49.760802"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:49.767773"], ["updated_at", "2021-03-18 21:07:49.767773"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:49.768749"], ["updated_at", "2021-03-18 21:07:49.768749"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:49.775436"], ["updated_at", "2021-03-18 21:07:49.775436"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:07:49.776419"], ["updated_at", "2021-03-18 21:07:49.776419"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:49.784864"], ["updated_at", "2021-03-18 21:07:49.784864"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:07:49.785923"], ["updated_at", "2021-03-18 21:07:49.785923"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.3ms)
+  Rendered posts/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "title"=>"My post title", "description"=>"My post description", "commit"=>"Submit Post"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My post title"], ["description", "My post description"], ["created_at", "2021-03-18 21:07:49.798168"], ["updated_at", "2021-03-18 21:07:49.798168"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/2
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/posts/2" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:07:49.805865"], ["updated_at", "2021-03-18 21:07:49.805865"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:07:49.807034"], ["updated_at", "2021-03-18 21:07:49.807034"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1/edit" for 127.0.0.1 at 2021-03-18 14:07:49 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (20.3ms)[0m  [1m[31mDELETE FROM "posts";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'posts';[0m
+  [1m[35m (1.7ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.5ms)[0m  [1m[31mDELETE FROM "authors";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'authors';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:08:00.247840"], ["updated_at", "2021-03-18 21:08:00.247840"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 101ms (Views: 95.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:08:00.356945"], ["updated_at", "2021-03-18 21:08:00.356945"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:08:00.364975"], ["updated_at", "2021-03-18 21:08:00.364975"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:08:00.370697"], ["updated_at", "2021-03-18 21:08:00.370697"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:08:00.381205"], ["updated_at", "2021-03-18 21:08:00.381205"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:08:00.382209"], ["updated_at", "2021-03-18 21:08:00.382209"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:08:00.390100"], ["updated_at", "2021-03-18 21:08:00.390100"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:08:00.391373"], ["updated_at", "2021-03-18 21:08:00.391373"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:08:00.398402"], ["updated_at", "2021-03-18 21:08:00.398402"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:08:00.399407"], ["updated_at", "2021-03-18 21:08:00.399407"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:08:00.408162"], ["updated_at", "2021-03-18 21:08:00.408162"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:08:00.409313"], ["updated_at", "2021-03-18 21:08:00.409313"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.3ms)
+  Rendered posts/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "title"=>"My post title", "description"=>"My post description", "commit"=>"Submit Post"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My post title"], ["description", "My post description"], ["created_at", "2021-03-18 21:08:00.421444"], ["updated_at", "2021-03-18 21:08:00.421444"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/2
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/posts/2" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:08:00.428966"], ["updated_at", "2021-03-18 21:08:00.428966"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:08:00.430015"], ["updated_at", "2021-03-18 21:08:00.430015"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1/edit" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.3ms)
+  Rendered posts/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started PATCH "/posts/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "title"=>"My edit", "description"=>"My post description", "commit"=>"Submit Post", "id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "My edit"], ["description", "My post description"], ["updated_at", "2021-03-18 21:08:00.440159"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:08:00 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.5ms)[0m  [1m[31mDELETE FROM "posts";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'posts';[0m
+  [1m[35m (1.5ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.4ms)[0m  [1m[31mDELETE FROM "authors";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'authors';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:16:56.350547"], ["updated_at", "2021-03-18 21:16:56.350547"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered authors/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 111ms (Views: 106.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "J.K. Rowling"], ["hometown", "Killiechassie, Scotland"], ["created_at", "2021-03-18 21:16:56.469594"], ["updated_at", "2021-03-18 21:16:56.469594"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered authors/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:16:56.478601"], ["updated_at", "2021-03-18 21:16:56.478601"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:16:56.485584"], ["updated_at", "2021-03-18 21:16:56.485584"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 21ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:16:56.512575"], ["updated_at", "2021-03-18 21:16:56.512575"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:16:56.513642"], ["updated_at", "2021-03-18 21:16:56.513642"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:16:56.521188"], ["updated_at", "2021-03-18 21:16:56.521188"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:16:56.522328"], ["updated_at", "2021-03-18 21:16:56.522328"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:16:56.530527"], ["updated_at", "2021-03-18 21:16:56.530527"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "A Time To Kill"], ["description", "A Time to Kill is a 1989 legal suspense thriller by John Grisham. It was Grisham's first novel. The novel was rejected by many publishers before Wynwood Press (located in New York) eventually gave it a modest 5,000-copy printing. After The Firm, The Pelican Brief, and The Client became bestsellers, interest in A Time to Kill grew; the book was republished by Doubleday in hardcover and, later, by Dell Publishing in paperback, and itself became a bestseller. This made Grisham extremely popular among readers."], ["created_at", "2021-03-18 21:16:56.531892"], ["updated_at", "2021-03-18 21:16:56.531892"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:16:56.540914"], ["updated_at", "2021-03-18 21:16:56.540914"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:16:56.542520"], ["updated_at", "2021-03-18 21:16:56.542520"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.3ms)
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "title"=>"My post title", "description"=>"My post description", "commit"=>"Submit Post"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My post title"], ["description", "My post description"], ["created_at", "2021-03-18 21:16:56.556954"], ["updated_at", "2021-03-18 21:16:56.556954"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/2
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+Started GET "/posts/2" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "hometown", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "John Grisham"], ["hometown", "Charlottesville, VA"], ["created_at", "2021-03-18 21:16:56.564800"], ["updated_at", "2021-03-18 21:16:56.564800"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "My Post"], ["description", "My post desc"], ["created_at", "2021-03-18 21:16:56.565808"], ["updated_at", "2021-03-18 21:16:56.565808"], ["author_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/1/edit" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.4ms)
+  Rendered posts/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 20ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started PATCH "/posts/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "title"=>"My edit", "description"=>"My post description", "commit"=>"Submit Post", "id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "My edit"], ["description", "My post description"], ["updated_at", "2021-03-18 21:16:56.591432"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-18 14:16:56 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (0.2ms)
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
